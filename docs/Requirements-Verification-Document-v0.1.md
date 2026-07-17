@@ -28,14 +28,14 @@ The objective is to replace the manual process with a web-based leave management
 
 ## 3. Project Objectives
 
-The proposed system should:
+The proposed system should:  
 
 ✅ Allow employees to submit annual leave requests online.  
 ✅ Allow managers to review leave requests.  
-✅ Allow managers to approve or reject requests. 
+✅ Allow managers to approve or reject requests.  
 ✅ Automatically calculate remaining leave.  
 ✅ Automatically identify conflicting leave requests and prevent requests that exceed department leave capacity limits.  
-✅ Reduce manual administration.
+✅ Reduce manual administration.  
 
 
 ## 4. Stakeholders
