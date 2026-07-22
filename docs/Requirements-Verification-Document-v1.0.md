@@ -6,6 +6,7 @@
 |---|---|---|
 | 0.1 | 08 Jul 2026 | Chinnu Rajan	Initial draft created |
 | 1.0 | 13 Jul 2026 | Chinnu Rajan	Updated following stakeholder review and incorporated agreed clarifications |
+| 1.1 | 20 Jul 2026 | Chinnu Rajan | Stakeholder reviewed, approved and baseline version created for development |
 
 ## Stakeholder Review Summary
 A requirements review was conducted with the Care Home Manager/Stakeholder on 13 July 2026 via phone.
@@ -14,11 +15,11 @@ The business requirements, assumptions, and clarification points were discussed.
 | Document Information | Details |
 |---|---|
 | Project | Care Home Leave Management System |
-| Document Version | 1.0 |
+| Document Version | 1.1 |
 | Document Owner | Chinnu Rajan |
 | Date Created | 08 July 2026 |
 | Last Updated | 13 July 2026 |
-| Document Status | Reviewed |
+| Document Status | Approved |
 | Reviewers | Care Home Manager /Stakeholder |
 | Review Date | 13 July 2026 |
 
@@ -160,3 +161,10 @@ The following features are not included in the initial version.
 
 The requirements documented in this specification were reviewed with the Care Home Manager/Stakeholder on 13 July 2026.
 The review confirmed the business processes, functional requirements, business rules and agreed clarifications. The feedback received during the review has been incorporated into this version of the document and will be used as the baseline for the system design and development phases.
+
+## 11. Requirements Approval and Sign-Off
+
+The requirements specification was reviewed and agreed with the Care Home Manager/Stakeholder on 20 July 2026.
+The stakeholder confirmed that the documented requirements, business rules, assumptions and clarifications accurately represent the agreed business process.
+This document is approved as the baseline requirement specification for the Care Home Leave Management System.
+Any future changes will be managed through a formal change request process.
