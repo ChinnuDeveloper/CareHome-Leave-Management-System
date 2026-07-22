@@ -6,7 +6,7 @@
 |---|---|---|
 | 0.1 | 08 Jul 2026 | Chinnu Rajan	Initial draft created |
 | 1.0 | 13 Jul 2026 | Chinnu Rajan	Updated following stakeholder review and incorporated agreed clarifications |
-| 1.1 | 20 Jul 2026 | Chinnu Rajan | Stakeholder reviewed, approved and baseline version created for development |
+| 1.1 | 20 Jul 2026 | Chinnu Rajan  Stakeholder reviewed, approved and baseline version created for development |
 
 ## Stakeholder Review Summary
 A requirements review was conducted with the Care Home Manager/Stakeholder on 13 July 2026 via phone.
