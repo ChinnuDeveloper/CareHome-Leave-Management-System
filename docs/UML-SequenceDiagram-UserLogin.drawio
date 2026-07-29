@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36">
+  <diagram id="2YBvvXClWsGukQMizWep" name="Page-1">
+    <mxGraphModel dx="1554" dy="926" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=5;fontSize=17;" value="&lt;strong data-start=&quot;201&quot; data-end=&quot;245&quot;&gt;Sequence Diagram – User Login&lt;/strong&gt;" vertex="1">
+          <mxGeometry height="30" width="830" x="10" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;User&lt;/div&gt;" vertex="1">
+          <mxGeometry height="720" width="20" x="25" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="React UI" vertex="1">
+          <mxGeometry height="719" width="80" x="95" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="AuthController" vertex="1">
+          <mxGeometry height="719" width="90" x="205" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="AuthService" vertex="1">
+          <mxGeometry height="719" width="85" x="335" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-8" parent="O0Uq0SWPa8nhsEFVXnZe-7" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
+          <mxGeometry height="294" width="10" x="37.5" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-9" edge="1" parent="O0Uq0SWPa8nhsEFVXnZe-7" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" value="Verify password">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="70.07" y="369" />
+              <mxPoint x="70.07" y="389" />
+            </Array>
+            <mxPoint x="50" y="369" as="sourcePoint" />
+            <mxPoint x="47.5" y="389" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-10" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="UserRepository" vertex="1">
+          <mxGeometry height="719" width="100" x="455" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-11" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="JwtTokenService" vertex="1">
+          <mxGeometry height="729" width="110" x="715" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-12" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="Database" vertex="1">
+          <mxGeometry height="729" width="100" x="585" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-13" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-3" value="Enter email and&lt;div&gt;&amp;nbsp;password&lt;/div&gt;">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="40" y="200" as="sourcePoint" />
+            <mxPoint x="120" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-3" value="Click login">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="40" y="230" as="sourcePoint" />
+            <mxPoint x="120" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="POST /login">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="134" y="260" as="sourcePoint" />
+            <mxPoint x="253.5" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Login()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="250" y="284" as="sourcePoint" />
+            <mxPoint x="377" y="284" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-17" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="GetUserByEmail()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="382" y="308" as="sourcePoint" />
+            <mxPoint x="506.5" y="308" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-18" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-12" value="SELECT user">
+          <mxGeometry relative="1" width="80" x="0.1518" y="6" as="geometry">
+            <mxPoint x="-1" as="offset" />
+            <mxPoint x="506" y="336" as="sourcePoint" />
+            <mxPoint x="630.5" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-19" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-10" value="User row">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="370" as="sourcePoint" />
+            <mxPoint x="550" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-20" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="User">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="504" y="420" as="sourcePoint" />
+            <mxPoint x="380.66666666666674" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-23" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Generate JWT">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="382" y="510" as="sourcePoint" />
+            <mxPoint x="771.5" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-24" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="JWT token">
+          <mxGeometry relative="1" x="0.0034" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="773" y="544" as="sourcePoint" />
+            <mxPoint x="379.66666666666674" y="544" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-25" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-6" value="JWT token">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="580" as="sourcePoint" />
+            <mxPoint x="290" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-26" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-3" value="200 OK plus JWT">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="620" as="sourcePoint" />
+            <mxPoint x="170" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O0Uq0SWPa8nhsEFVXnZe-27" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="O0Uq0SWPa8nhsEFVXnZe-2" value="Store token">
+          <mxGeometry relative="1" x="0.0017" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="130" y="670" as="sourcePoint" />
+            <mxPoint x="50" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
