@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CareHomeLeaveManagement.Application\CareHomeLeaveManagement.Application.csproj" />
+    <ProjectReference Include="..\CareHomeLeaveManagement.Domain\CareHomeLeaveManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
