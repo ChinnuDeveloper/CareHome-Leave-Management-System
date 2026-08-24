@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CareHomeLeaveManagement.Domain.Enums;
+
+namespace CareHomeLeaveManagement.Domain.Entities
+{
+    public class Employee
+    {
+        public int EmployeeId { get; private set; }
+        public string FirstName { get; private set; } = string.Empty;
+        public string LastName { get; private set; } = string.Empty;
+        public DateTime DateOfBirth { get; set; }
+        public int DepartmentId { get; private set; }
+        public decimal WeeklyHours { get; private set; }
+        public EmployeeRole Role { get; private set; }
+        public bool Active { get; private set; }
+        public int? ManagerId { get; private set; }
+    }
+}
