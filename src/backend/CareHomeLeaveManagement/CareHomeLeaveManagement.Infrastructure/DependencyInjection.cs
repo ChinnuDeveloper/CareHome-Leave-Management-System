@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CareHomeLeaveManagement.Application.Departments.Interfaces;
+using CareHomeLeaveManagement.Application.LeaveTypes.Interfaces;
 using CareHomeLeaveManagement.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace CareHomeLeaveManagement.Infrastructure
               IConfiguration configuration)
         {
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
 
             return services;
 
