@@ -10,7 +10,8 @@ namespace CareHomeLeaveManagement.Domain.Entities
     {
         public int FiscalYearId { get; private set; }
         public string Year { get; private set; } = string.Empty;
-        public int GeneratedBy { get; private set; }
-        public DateTime GeneratedOn { get; private set; }
+        public int? GeneratedBy { get; private set; }
+        public Employee? GeneratedByEmployee { get; private set; } 
+        public DateTime? GeneratedOn { get; private set; }
     }
 }

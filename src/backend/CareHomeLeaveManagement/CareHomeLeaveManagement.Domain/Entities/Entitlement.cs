@@ -10,8 +10,11 @@ namespace CareHomeLeaveManagement.Domain.Entities
     {
         public int EntitlementId { get; private set; }
         public int EmployeeId { get; private set; }
+        public Employee Employee { get; private set; } = null!;
         public int LeaveTypeId { get; private set; }
+        public LeaveType LeaveType { get; private set; } = null!;
         public int FiscalYearId { get; private set; }
+        public FiscalYear FiscalYear { get; private set; } = null!;
         public decimal AllocatedHrs { get; private set; }
         public decimal TakenHrs { get;private set; } 
     }

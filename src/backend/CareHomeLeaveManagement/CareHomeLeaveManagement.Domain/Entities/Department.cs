@@ -11,5 +11,7 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public int DepartmentId { get; private set; }
         public string DepartmentName { get; private set; } = string.Empty;
         public int MaxConcurrentLeave { get; private set; }
+
+        public ICollection<Employee> Employees { get; private set; }=new List<Employee>();
     }
 }
