@@ -11,13 +11,19 @@ namespace CareHomeLeaveManagement.Domain.Entities
     {
         public int LeaveRequestId { get; private set; }
         public int EmployeeId { get; private set; }
+
+        public Employee Employee { get; private set; } = null;
         public int LeaveTypeId { get; private set; }
+        public LeaveType LeaveType { get; private set; } = null;
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public string? Reason { get; private set; }
         public string? ManagerComment { get; private set; }
         public LeaveRequestStatus Status { get; private set; }
         public int? ApprovedBy { get; private set; }
+        public Employee? Approver { get; private set; }
         public DateTime? ApprovedOn { get; private set; }
+
+        public ICollection<LeaveHistory> LeaveHistory { get; private set; } =new List<LeaveHistory>();
     }
 }

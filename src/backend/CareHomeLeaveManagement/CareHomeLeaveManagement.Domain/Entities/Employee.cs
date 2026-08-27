@@ -18,5 +18,13 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public EmployeeRole Role { get; private set; }
         public bool Active { get; private set; }
         public int? ManagerId { get; private set; }
+
+        public Employee? Manager { get; private set; }
+        public ICollection<Employee> TeamMembers { get; private set; } = new List<Employee>();
+        public Department Department { get; private set; } = null;
+
+        public ICollection<LeaveRequest> LeaveRequests { get; private set; }=new List<LeaveRequest>();
+        
+        public ICollection<LeaveRequest> ApprovedLeaveRequests { get;private set; }=new List<LeaveRequest>();
     }
 }

@@ -10,6 +10,8 @@ namespace CareHomeLeaveManagement.Domain.Entities
     {
         public int LeaveTypeId { get; private set; }
         public string Name { get; private set; } = string.Empty;
-        public bool RequiresEntitlement { get; private set; } 
+        public bool RequiresEntitlement { get; private set; }
+
+        public ICollection<LeaveRequest> LeaveRequests { get; private set; } = new List<LeaveRequest>();
     }
 }
