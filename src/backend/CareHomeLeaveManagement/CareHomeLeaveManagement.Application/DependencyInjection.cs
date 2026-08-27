@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CareHomeLeaveManagement.Application.Departments.Interfaces;
 using CareHomeLeaveManagement.Application.Departments.Services;
+using CareHomeLeaveManagement.Application.LeaveTypes.Interfaces;
+using CareHomeLeaveManagement.Application.LeaveTypes.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CareHomeLeaveManagement.Application
@@ -15,6 +17,7 @@ namespace CareHomeLeaveManagement.Application
             this IServiceCollection services)
         {
             services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<ILeaveTypeService, LeaveTypeService>();
 
             return services;
         }
