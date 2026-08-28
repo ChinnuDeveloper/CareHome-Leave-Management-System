@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CareHomeLeaveManagement.Application.Common.Interfaces;
+
+namespace CareHomeLeaveManagement.Infrastructure.Persistence
+{
+    public class UnitOfWork : IUnitOfWork
+    {
+        private readonly CareHomeLeaveManagementDbContext _context;
+
+        public UnitOfWork(CareHomeLeaveManagementDbContext context)
+        {
+            _context = context;
+        }
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return _context.SaveChangesAsync(cancellationToken);
+        }
+    }
+}

@@ -27,8 +27,8 @@ namespace CareHomeLeaveManagement.Infrastructure.Persistence.Configurations
             builder.HasIndex(l => l.UserName)
                 .IsUnique();
 
-            builder.HasOne<Employee>()
-                .WithOne()
+            builder.HasOne(l => l.Employee)
+                .WithOne(e => e.Login)
                 .HasForeignKey<Login>(l => l.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
