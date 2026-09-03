@@ -24,5 +24,12 @@ namespace CareHomeLeaveManagement.Infrastructure.Repositories
                  .AsNoTracking()
                  .ToListAsync();
         }
+
+        public async Task<List<LeaveType>> GetEntitlementLeaveTypesAsync()
+        {
+            return await _context.LeaveTypes
+                 .Where(l => l.RequiresEntitlement)
+                 .ToListAsync();
+        }
     }
 }

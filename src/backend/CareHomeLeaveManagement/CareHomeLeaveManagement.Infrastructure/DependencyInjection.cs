@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CareHomeLeaveManagement.Application.Common.Interfaces;
 using CareHomeLeaveManagement.Application.Departments.Interfaces;
 using CareHomeLeaveManagement.Application.Employees.Interfaces;
+using CareHomeLeaveManagement.Application.Entitlements.Interfaces;
 using CareHomeLeaveManagement.Application.LeaveTypes.Interfaces;
 using CareHomeLeaveManagement.Infrastructure.Persistence;
 using CareHomeLeaveManagement.Infrastructure.Repositories;
@@ -27,7 +28,8 @@ namespace CareHomeLeaveManagement.Infrastructure
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
-             
+            services.AddScoped<IEntitlementRepository, EntitlementRepository>();
+
             return services;
 
         }

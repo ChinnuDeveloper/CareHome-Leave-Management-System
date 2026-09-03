@@ -13,5 +13,11 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public int? GeneratedBy { get; private set; }
         public Employee? GeneratedByEmployee { get; private set; } 
         public DateTime? GeneratedOn { get; private set; }
+
+        public void MarkEntitlementsGenerated(int generatedBy, DateTime generatedOn)
+        {
+            GeneratedBy = generatedBy;
+            GeneratedOn = generatedOn;
+        }
     }
 }

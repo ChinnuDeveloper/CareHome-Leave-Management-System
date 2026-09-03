@@ -23,6 +23,10 @@ namespace CareHomeLeaveManagement.Domain.Entities
         {
             Active = false;
         }
+        public void UpdateWeeklyHours(decimal weeklyHours)
+        {
+            WeeklyHours = weeklyHours;
+        }
         public Employee? Manager { get; private set; }
         public ICollection<Employee> TeamMembers { get; private set; } = new List<Employee>();
         public Department Department { get; private set; } = null!;
