@@ -10,5 +10,6 @@ namespace CareHomeLeaveManagement.Application.LeaveTypes.Interfaces
     public interface ILeaveTypeRepository
     {
         Task<IEnumerable<LeaveType>> GetAllAsync();
+        Task<List<LeaveType>> GetEntitlementLeaveTypesAsync();
     }
 }

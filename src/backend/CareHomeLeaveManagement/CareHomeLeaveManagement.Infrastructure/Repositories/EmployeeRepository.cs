@@ -28,6 +28,18 @@ namespace CareHomeLeaveManagement.Infrastructure.Repositories
             employee.Deactivate(); 
         }
 
+        public async Task<List<Employee>> GetActiveEmployeeAsync()
+        {
+            return await _context.Employees
+                .Where(e => e.Active)
+                .ToListAsync();
+        }
+
+        public async Task AddRangeAsync(IEnumerable<Entitlement> entitlements)
+        {
+            await _context.Entitlements .AddRangeAsync(entitlements);
+        }
+
         public async Task<IEnumerable<Employee>> GetAllAsync()
         {
             return await _context.Employees

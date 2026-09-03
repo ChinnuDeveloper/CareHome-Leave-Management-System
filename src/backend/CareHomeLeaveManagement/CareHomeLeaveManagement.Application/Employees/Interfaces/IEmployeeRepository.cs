@@ -14,6 +14,7 @@ namespace CareHomeLeaveManagement.Application.Employees.Interfaces
         Task AddAsync(Employee employee);
         Task UpdateAsync(Employee employee);
         Task DeleteAsync(Employee employee);
+        Task<List<Employee>> GetActiveEmployeeAsync();
 
     }
 }

@@ -19,5 +19,30 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public int ModifiedBy { get; private set; }
         public Employee ModifiedByEmployee { get; private set; } = null!;
         public DateTime ModifiedOn { get; private set; }
+
+        private EntitlementHistory() 
+        {
+
+        }
+        public EntitlementHistory( 
+            int entitlementId, 
+            decimal oldAllocationHrs,
+            decimal oldTakenHrs,
+            decimal newAllocationHrs,
+            decimal newTakenHrs,
+            string? reason,
+            int modifiedBy,
+            DateTime modifiedOn)
+        {
+            EntitlementId = entitlementId;
+            OldAllocationHrs = oldAllocationHrs;
+            OldTakenHrs = oldTakenHrs;
+            NewAllocationHrs =newAllocationHrs;
+            NewTakenHrs=newTakenHrs;
+            Reason=reason;
+            ModifiedBy = modifiedBy;
+            ModifiedOn = modifiedOn;
+        }
+
     }
 }
