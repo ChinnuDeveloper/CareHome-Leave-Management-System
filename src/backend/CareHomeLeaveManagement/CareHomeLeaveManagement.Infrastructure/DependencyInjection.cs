@@ -7,6 +7,8 @@ using CareHomeLeaveManagement.Application.Common.Interfaces;
 using CareHomeLeaveManagement.Application.Departments.Interfaces;
 using CareHomeLeaveManagement.Application.Employees.Interfaces;
 using CareHomeLeaveManagement.Application.Entitlements.Interfaces;
+using CareHomeLeaveManagement.Application.LeaveHistories.Interfaces;
+using CareHomeLeaveManagement.Application.LeaveRequests.Interfaces;
 using CareHomeLeaveManagement.Application.LeaveTypes.Interfaces;
 using CareHomeLeaveManagement.Infrastructure.Persistence;
 using CareHomeLeaveManagement.Infrastructure.Repositories;
@@ -29,6 +31,8 @@ namespace CareHomeLeaveManagement.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IEntitlementRepository, EntitlementRepository>();
+            services.AddScoped<ILeaveRequestRepository, LeaveRequestRepository>();
+            services.AddScoped<ILeaveHistoryRepository, LeaveHistoryRepository>();
 
             return services;
 

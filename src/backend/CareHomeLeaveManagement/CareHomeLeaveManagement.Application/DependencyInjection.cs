@@ -9,6 +9,10 @@ using CareHomeLeaveManagement.Application.Employees.Interfaces;
 using CareHomeLeaveManagement.Application.Employees.Services;
 using CareHomeLeaveManagement.Application.Entitlements.Interfaces;
 using CareHomeLeaveManagement.Application.Entitlements.Services;
+using CareHomeLeaveManagement.Application.LeaveHistories.Interfaces;
+using CareHomeLeaveManagement.Application.LeaveHistories.Services;
+using CareHomeLeaveManagement.Application.LeaveRequests.Interfaces;
+using CareHomeLeaveManagement.Application.LeaveRequests.Services;
 using CareHomeLeaveManagement.Application.LeaveTypes.Interfaces;
 using CareHomeLeaveManagement.Application.LeaveTypes.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +28,9 @@ namespace CareHomeLeaveManagement.Application
             services.AddScoped<ILeaveTypeService, LeaveTypeService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IEntitlementService, EntitlementService>();
+            services.AddScoped<ILeaveRequestService, LeaveRequestService>();
+            services.AddScoped<ILeaveRequestService, LeaveRequestService>();
+            services.AddScoped<ILeaveHistoryService, LeaveHistoryService>();
 
             return services;
         }
