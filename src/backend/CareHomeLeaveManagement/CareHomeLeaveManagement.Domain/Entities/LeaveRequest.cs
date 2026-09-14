@@ -12,9 +12,9 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public int LeaveRequestId { get; private set; }
         public int EmployeeId { get; private set; }
 
-        public Employee Employee { get; private set; } = null;
+        public Employee Employee { get; private set; } = null!;
         public int LeaveTypeId { get; private set; }
-        public LeaveType LeaveType { get; private set; } = null;
+        public LeaveType LeaveType { get; private set; } = null!;
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public string? Reason { get; private set; }
@@ -25,5 +25,64 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public DateTime? ApprovedOn { get; private set; }
 
         public ICollection<LeaveHistory> LeaveHistory { get; private set; } =new List<LeaveHistory>();
+
+        private LeaveRequest()
+        {
+
+        }
+        public LeaveRequest(
+        int employeeId,
+        int leaveTypeId,
+        DateTime startDate,
+        DateTime endDate,
+        string? reason)
+        {
+            if (employeeId <= 0)
+                throw new ArgumentException("Invalid employee.");
+
+            if (leaveTypeId <= 0)
+                throw new ArgumentException("Invalid leave type.");
+
+            if (startDate.Date > endDate.Date)
+                throw new ArgumentException("Start date cannot be after end date.");
+
+            EmployeeId=employeeId;
+            LeaveTypeId=leaveTypeId;
+            StartDate=startDate;
+            EndDate=endDate;
+            Reason=reason;
+
+            Status = LeaveRequestStatus.Pending;
+        }
+        
+        public void Approve(int managerId, string? managerComment)
+        {
+            if (Status != LeaveRequestStatus.Pending)
+                throw new InvalidOperationException(
+                    "Only pending leave requests can be approved.");
+
+            Status = LeaveRequestStatus.Approved;
+            ApprovedBy = managerId;
+            ApprovedOn = DateTime.UtcNow;
+            ManagerComment = managerComment;
+        }
+        public void Reject(int managerId, string? managerComment)
+        {
+            if (Status != LeaveRequestStatus.Pending)
+                throw new InvalidOperationException(
+                    "Only pending leave requests can be rejected.");
+
+            Status = LeaveRequestStatus.Rejected;
+            ApprovedBy = managerId;
+            ApprovedOn = DateTime.UtcNow;
+            ManagerComment= managerComment;
+        }
+
+        public void Cancel()
+        {
+            if (Status != LeaveRequestStatus.Pending)
+                throw new InvalidOperationException("Only pending leave requests can be cancelled.");
+            Status = LeaveRequestStatus.Cancelled;
+        }
     }
 }
