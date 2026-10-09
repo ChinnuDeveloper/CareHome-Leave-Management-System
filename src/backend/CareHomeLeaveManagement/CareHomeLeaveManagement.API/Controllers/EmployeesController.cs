@@ -16,18 +16,18 @@ namespace CareHomeLeaveManagement.API.Controllers
             _employeeService = employeeService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpGet("{fiscalYearId:int}/{leaveTypeId:int}")]
+        public async Task<IActionResult> GetAll(int fiscalYearId, int leaveTypeId)
         {
-            var employees = await _employeeService.GetAllAsync();
+            var employees = await _employeeService.GetAllAsync(fiscalYearId,leaveTypeId);
 
             return Ok(employees);
         }
 
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<EmployeeDto>> GetById(int id)
+        [HttpGet("{id:int}/{fiscalYearId:int}/{leaveTypeId:int}")]
+        public async Task<ActionResult<EmployeeDto>> GetById(int id, int fiscalYearId, int leaveTypeId)
         {
-            var employee= await _employeeService.GetByIdAsync(id);
+            var employee= await _employeeService.GetByIdAsync(id, fiscalYearId, leaveTypeId);
 
             if (employee == null)
             {
@@ -37,6 +37,16 @@ namespace CareHomeLeaveManagement.API.Controllers
             return Ok(employee);
         }
 
+        [HttpGet("{employeeId}/leave-balance")]
+        public async Task<IActionResult> GetLeaveBalance(int employeeId, [FromQuery] int leaveTypeId, [FromQuery] int fiscalYearId)
+        {
+            var result = await _employeeService.GetLeaveBalanceAsync(employeeId, leaveTypeId, fiscalYearId);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<ActionResult<EmployeeDto>> Create(
             CreateEmployeeRequest request)
@@ -49,10 +59,10 @@ namespace CareHomeLeaveManagement.API.Controllers
                 employee);
         }
 
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{id:int}/{fiscalYearId:int}/{leaveTypeId:int}")]
+        public async Task<IActionResult> Delete(int id, int fiscalYearId, int leaveTypeId)
         {
-            var deleted = await _employeeService.DeleteAsync(id);
+            var deleted = await _employeeService.DeleteAsync(id, fiscalYearId, leaveTypeId);
 
             if(!deleted)
             {
@@ -63,12 +73,14 @@ namespace CareHomeLeaveManagement.API.Controllers
 
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int}/{fiscalYearId:int}/{leaveTypeId:int}")]
         public async Task<ActionResult<EmployeeDto>> Update(
             int id,
+            int fiscalYearId, 
+            int leaveTypeId,
             [FromBody] UpdateEmployeeRequest request)
         {
-            var employee = await _employeeService.UpdateAsync(id, request);
+            var employee = await _employeeService.UpdateAsync(id, fiscalYearId, leaveTypeId, request);
 
             if (employee == null)
             {

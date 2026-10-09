@@ -24,7 +24,7 @@ namespace CareHomeLeaveManagement.Infrastructure.Persistence.Configurations
                 .HasPrecision(18,2);
 
             builder.HasOne(e => e.Employee)
-                .WithMany()
+                .WithMany(e=>e.Entitlements)
                 .HasForeignKey(e => e.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
 

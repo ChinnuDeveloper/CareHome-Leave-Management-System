@@ -1,0 +1,178 @@
+.new-button {
+  height: 35px;
+  padding: 0 15px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; 
+  color: white;
+  background-color: #376d2b; 
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1f1a;
+}
+
+/* Shared box for both the date input and the select */
+.date-input,
+.select-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  height: var(--control-height, 40px);
+  border-radius: var(--control-radius, 12px);
+  border: 1px solid var(--field-border, #d8d2c2);
+  background-color: #fff;
+}
+
+.select-wrapper select {
+  /* Reset the native control so it fills the wrapper instead of sizing itself */
+  appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 36px 0 var(--control-px, 12px); /* right padding clears the chevron */
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: var(--control-font-size, 14px);
+  color: #1a1f1a;
+  cursor: pointer;
+}
+
+.select-wrapper select:focus {
+  outline: none;
+}
+
+.select-wrapper .select-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none; /* clicks pass through to the select */
+  color: #6b6f68;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px; /* space between Cancel and Save */
+}
+
+/* If gap doesn't work in your environment, margin is a reliable fallback: */
+.dialog-actions > *:not(:last-child) {
+  margin-right: 6px;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--control-height, 40px);
+  padding: 0 22px;
+  border: none;
+  border-radius: var(--control-radius, 12px);
+  background-color: var(--brand-dark, #2d5a2a);
+  color: #ffffff !important; /* force white — see note below */
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.submit-button:hover {
+  background-color: var(--brand-dark-hover, #244a22);
+  color: #ffffff;
+}
+
+.submit-button svg {
+  stroke: #ffffff; /* the checkmark uses currentColor, so this follows automatically — kept explicit here in case it's styled separately */
+}
+.error-text {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input-error {
+  border: 2px solid #dc2626;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.dialog-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Delete button */
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--control-height, 40px);
+  padding: 0 22px;
+  border: 1px solid #dc3545;
+  border-radius: var(--control-radius, 12px);
+  background-color: transparent;
+  color: #dc3545;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.delete-button:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.year-field {
+    width: 180px;
+}
+
+.year-field .select-wrapper {
+    width: 180px;
+}
+
+.year-field select {
+    width: 100%;
+}

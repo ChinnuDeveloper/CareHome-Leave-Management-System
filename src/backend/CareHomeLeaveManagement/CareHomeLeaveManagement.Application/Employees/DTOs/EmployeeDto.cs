@@ -21,5 +21,13 @@ namespace CareHomeLeaveManagement.Application.Employees.DTOs
         public int? ManagerId { get; set; } 
         public string? ManagerName { get; set; }
         public string UserName { get; set; } = string.Empty;
+        public int? EntitlementId { get; set; } 
+        public string EmployeeName { get; set; } = null!;
+        public int? LeaveTypeId { get; set; }
+        public string LeaveType { get; set; } = null!;
+        public int? FiscalYearId { get; set; }
+        public string FiscalYear { get; set; } = null!; 
+        public decimal? AllocatedHrs { get; set; }
+        public decimal? TakenHrs { get; set; } 
     }
 }

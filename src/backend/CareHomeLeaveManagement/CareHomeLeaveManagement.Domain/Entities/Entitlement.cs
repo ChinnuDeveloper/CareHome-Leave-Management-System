@@ -16,7 +16,7 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public int FiscalYearId { get; private set; }
         public FiscalYear FiscalYear { get; private set; } = null!;
         public decimal AllocatedHrs { get; private set; }
-        public decimal TakenHrs { get;private set; }
+        public decimal TakenHrs { get;private set; } 
 
         public void Update(decimal allocatedHrs, decimal takenHrs)
         {

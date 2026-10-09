@@ -36,6 +36,7 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public ICollection<LeaveRequest> ApprovedLeaveRequests { get;private set; }=new List<LeaveRequest>();
 
         public Login? Login { get; private set; }
+        public ICollection<Entitlement> Entitlements { get; private set; } = new List<Entitlement>();
         private Employee()
         {
 

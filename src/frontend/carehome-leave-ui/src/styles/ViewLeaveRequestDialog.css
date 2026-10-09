@@ -1,0 +1,106 @@
+.view-dialog-header {
+  background: linear-gradient(90deg, #0d160f 0%, #294b1a 100%);
+  color: white;
+  padding: 8px 10px 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dialog-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px !important;
+  letter-spacing: 2px;
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+}
+
+.dialog-title {
+  font-family: Georgia, serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+.close-btn {
+  color: white !important;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+}
+
+.close-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.view-dialog-content {
+  padding: 16px !important;
+}
+
+.field {
+  margin-bottom: 4px;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2px;
+}
+
+.readonly-box {
+  background: #d9d5cf;
+  border: 1px solid #d1c6b2;
+  border-radius: 12px;
+  padding: 8px 18px;
+  color: #66655f;
+  font-size: 16px;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.dialog-actions button {
+  border-color: #d1c6b2;
+  color: #222;
+  padding: 8px 24px;
+  border-radius: 12px;
+  text-transform: none;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .view-dialog-header {
+    padding: 22px;
+  }
+
+  .dialog-title {
+    font-size: 28px !important;
+  }
+
+  .view-dialog-content {
+    padding: 22px !important;
+  }
+
+  .date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-actions {
+    justify-content: center;
+  }
+
+  .dialog-actions button {
+    width: 100%;
+  }
+}

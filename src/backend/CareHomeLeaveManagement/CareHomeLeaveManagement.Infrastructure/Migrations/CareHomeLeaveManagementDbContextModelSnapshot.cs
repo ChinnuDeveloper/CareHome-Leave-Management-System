@@ -316,6 +316,9 @@ namespace CareHomeLeaveManagement.Infrastructure.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("HoursTaken")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("LeaveTypeId")
                         .HasColumnType("int");
 
@@ -534,11 +537,13 @@ namespace CareHomeLeaveManagement.Infrastructure.Migrations
 
             modelBuilder.Entity("CareHomeLeaveManagement.Domain.Entities.Login", b =>
                 {
-                    b.HasOne("CareHomeLeaveManagement.Domain.Entities.Employee", null)
-                        .WithOne()
+                    b.HasOne("CareHomeLeaveManagement.Domain.Entities.Employee", "Employee")
+                        .WithOne("Login")
                         .HasForeignKey("CareHomeLeaveManagement.Domain.Entities.Login", "EmployeeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("CareHomeLeaveManagement.Domain.Entities.Department", b =>
@@ -551,6 +556,8 @@ namespace CareHomeLeaveManagement.Infrastructure.Migrations
                     b.Navigation("ApprovedLeaveRequests");
 
                     b.Navigation("LeaveRequests");
+
+                    b.Navigation("Login");
 
                     b.Navigation("TeamMembers");
                 });

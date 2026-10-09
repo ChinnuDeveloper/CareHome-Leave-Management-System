@@ -67,7 +67,8 @@ namespace CareHomeLeaveManagement.Application.LeaveRequests.Services
                 dto.leaveTypeId,
                 dto.startDate,
                 dto.endDate,
-                dto.reason);
+                dto.reason,
+                dto.hoursTaken);
 
             await _leaveRequestRepository.AddAsync(leaveRequest);
 
@@ -135,7 +136,9 @@ namespace CareHomeLeaveManagement.Application.LeaveRequests.Services
                Reason = leaveRequest.Reason,
                ManagerComment = leaveRequest.ManagerComment,
                Status = leaveRequest.Status.ToString(),
-               ApprovedOn= leaveRequest.ApprovedOn
+               ApprovedOn= leaveRequest.ApprovedOn,
+               HoursTaken= leaveRequest.HoursTaken
+               
             };
         }
 

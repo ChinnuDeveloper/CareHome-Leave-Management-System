@@ -19,5 +19,9 @@ namespace CareHomeLeaveManagement.Application.Entitlements.DTOs
         public decimal WeeklyHours { get; set; }
         public decimal AllocatedHrs { get; set; }
         public decimal TakenHrs { get; set; }
+        public string DepartmentName { get; set; } = string.Empty;
+        public bool Active { get; set; }
+
+
     }
 }

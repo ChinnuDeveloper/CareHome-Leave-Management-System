@@ -23,6 +23,7 @@ namespace CareHomeLeaveManagement.Domain.Entities
         public int? ApprovedBy { get; private set; }
         public Employee? Approver { get; private set; }
         public DateTime? ApprovedOn { get; private set; }
+        public decimal HoursTaken { get; private set; } = 0;
 
         public ICollection<LeaveHistory> LeaveHistory { get; private set; } =new List<LeaveHistory>();
 
@@ -35,7 +36,8 @@ namespace CareHomeLeaveManagement.Domain.Entities
         int leaveTypeId,
         DateTime startDate,
         DateTime endDate,
-        string? reason)
+        string? reason,
+        decimal hoursTaken)
         {
             if (employeeId <= 0)
                 throw new ArgumentException("Invalid employee.");
@@ -46,11 +48,15 @@ namespace CareHomeLeaveManagement.Domain.Entities
             if (startDate.Date > endDate.Date)
                 throw new ArgumentException("Start date cannot be after end date.");
 
-            EmployeeId=employeeId;
+            if (hoursTaken < 0)
+                throw new ArgumentException("Hours taken cannot be negative.");
+
+            EmployeeId = employeeId;
             LeaveTypeId=leaveTypeId;
             StartDate=startDate;
             EndDate=endDate;
             Reason=reason;
+            HoursTaken = hoursTaken;
 
             Status = LeaveRequestStatus.Pending;
         }

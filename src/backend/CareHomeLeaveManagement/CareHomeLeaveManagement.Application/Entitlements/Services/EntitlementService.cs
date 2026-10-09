@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using CareHomeLeaveManagement.Application.Common.Interfaces;
 using CareHomeLeaveManagement.Application.Employees.DTOs;
 using CareHomeLeaveManagement.Application.Employees.Interfaces;
+using CareHomeLeaveManagement.Application.Employees.Services;
 using CareHomeLeaveManagement.Application.Entitlements.DTOs;
 using CareHomeLeaveManagement.Application.Entitlements.Interfaces;
 using CareHomeLeaveManagement.Application.LeaveTypes.DTOs;
 using CareHomeLeaveManagement.Application.LeaveTypes.Interfaces;
 using CareHomeLeaveManagement.Domain.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace CareHomeLeaveManagement.Application.Entitlements.Services
 {
@@ -20,14 +22,19 @@ namespace CareHomeLeaveManagement.Application.Entitlements.Services
         private readonly IEmployeeRepository _employeeRepository;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger<EntitlementService> _logger;
 
-        public EntitlementService(IEntitlementRepository entitlementRepository, IEmployeeRepository employeeRepository,
-            ILeaveTypeRepository leaveTypeRepository, IUnitOfWork unitOfWork)
+        public EntitlementService(IEntitlementRepository entitlementRepository, 
+            IEmployeeRepository employeeRepository,
+            ILeaveTypeRepository leaveTypeRepository, 
+            IUnitOfWork unitOfWork,
+             ILogger<EntitlementService> logger)
         {
             _entitlementRepository = entitlementRepository;
             _employeeRepository = employeeRepository;
             _leaveTypeRepository = leaveTypeRepository;
             _unitOfWork = unitOfWork;
+            _logger = logger;
         }
         public async Task<IEnumerable<FiscalYearDto>> GetFiscalYearAsync()
         {
@@ -44,46 +51,59 @@ namespace CareHomeLeaveManagement.Application.Entitlements.Services
         } 
         public async Task GenerateEntitlementsAsync(GenerateEntitlementRequest request)
         {
-            var fiscalYear = await _entitlementRepository
-                            .GetFiscalYearByIdAsync(request.FiscalYearId);
-
-            if(fiscalYear==null)
+            try
             {
-                throw new KeyNotFoundException($"Fiscal year {request.FiscalYearId} was not found.");
-            }
+                var fiscalYear = await _entitlementRepository
+                                .GetFiscalYearByIdAsync(request.FiscalYearId);
 
-            await _entitlementRepository.DeleteEntitlementsByFiscalYearAsync(request.FiscalYearId);
-
-            //Get active employees
-            var employees = await _employeeRepository.GetActiveEmployeeAsync();
-
-            //Get leave types that require entitlement
-            var leaveTypes= await _leaveTypeRepository.GetEntitlementLeaveTypesAsync();
-            
-            var entitlements=new List<Entitlement>();
-
-            foreach (var employee in employees)
-            {
-                foreach(var leaveType in leaveTypes)
+                if (fiscalYear == null)
                 {
-                    var allocatedHours = employee.WeeklyHours * request.CalculationRule;
-
-                    var entitlement = new Entitlement(
-                        employee.EmployeeId,
-                        leaveType.LeaveTypeId,
-                        request.FiscalYearId,
-                        allocatedHours);
-
-                    entitlements.Add(entitlement);
-
+                    throw new KeyNotFoundException($"Fiscal year {request.FiscalYearId} was not found.");
                 }
+
+                //await _entitlementRepository.DeleteEntitlementsByFiscalYearAsync(request.FiscalYearId);
+
+                //Get active employees
+                var employees = await _employeeRepository.GetActiveEmployeeAsync();
+
+                //Get leave types that require entitlement
+                var leaveTypes = await _leaveTypeRepository.GetEntitlementLeaveTypesAsync();
+
+                var entitlements = new List<Entitlement>();
+
+                foreach (var employee in employees)
+                {
+                    foreach (var leaveType in leaveTypes)
+                    {
+                        var allocatedHours = employee.WeeklyHours * request.CalculationRule;
+
+                        var entitlement = new Entitlement(
+                            employee.EmployeeId,
+                            leaveType.LeaveTypeId,
+                            request.FiscalYearId,
+                            allocatedHours);
+
+                        entitlements.Add(entitlement);
+
+                    }
+                }
+
+                await _entitlementRepository.AddEntitlementAsync(entitlements);
+
+                fiscalYear.MarkEntitlementsGenerated(request.GeneratedBy, request.GeneratedOn);
+
+                await _unitOfWork.SaveChangesAsync();
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    ex,
+                    "Error creating entitlement {FiscalYearId}",
+                    request.FiscalYearId
+                );
 
-            await _entitlementRepository.AddEntitlementAsync(entitlements);
-
-            fiscalYear.MarkEntitlementsGenerated(request.GeneratedBy, request.GeneratedOn);
-
-            await _unitOfWork.SaveChangesAsync();
+                throw;
+            }
 
         }
 
@@ -96,6 +116,7 @@ namespace CareHomeLeaveManagement.Application.Entitlements.Services
         {
             var entitlements=await _entitlementRepository.GetAllEntitlementsAsync(fiscalYearId);
 
+
             return entitlements.Select(e => new EntitlementDto
             {
                  EntitlementId = e.EntitlementId,
@@ -107,7 +128,10 @@ namespace CareHomeLeaveManagement.Application.Entitlements.Services
                  FiscalYear = e.FiscalYear.Year,
                  AllocatedHrs = e.AllocatedHrs,
                  TakenHrs = e.TakenHrs,
-                 WeeklyHours=e.Employee.WeeklyHours
+                 WeeklyHours=e.Employee.WeeklyHours,
+                 DepartmentName=e.Employee.Department.DepartmentName,
+                 Active=e.Employee.Active
+
             });
         }
         public async Task UpdateEntitlementAsync(int entitlementId, UpdateEntitlementRequest request)

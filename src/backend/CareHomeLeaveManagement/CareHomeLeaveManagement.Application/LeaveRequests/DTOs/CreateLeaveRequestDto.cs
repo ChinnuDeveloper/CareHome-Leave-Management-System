@@ -13,5 +13,6 @@ namespace CareHomeLeaveManagement.Application.LeaveRequests.DTOs
         public DateTime startDate { get;set; }
         public DateTime endDate { get;set; }
         public string? reason { get; set; }
+        public decimal hoursTaken { get; set; } = 0;
     }
 }

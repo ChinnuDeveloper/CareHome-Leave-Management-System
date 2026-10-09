@@ -18,7 +18,6 @@ namespace CareHomeLeaveManagement.Infrastructure.Repositories
         {
             _context = context;
         }
-
         public async Task AddEntitlementAsync(IEnumerable<Entitlement> entitlements)
         {
             await _context.Entitlements.AddRangeAsync(entitlements);
@@ -57,6 +56,7 @@ namespace CareHomeLeaveManagement.Infrastructure.Repositories
             return await _context.Entitlements
                  .Where(e=>e.FiscalYearId ==fiscalYearId)
                  .Include(e => e.Employee)
+                    .ThenInclude(emp => emp.Department)
                  .Include(e => e.LeaveType)
                  .Include(e => e.FiscalYear)
                  .OrderBy(e => e.Employee.FirstName)
@@ -70,6 +70,7 @@ namespace CareHomeLeaveManagement.Infrastructure.Repositories
                 .Include(e => e.LeaveType)
                 .Include(e => e.FiscalYear)
                 .FirstOrDefaultAsync(e => e.EntitlementId == entitlementId); 
+
         }
 
         public async Task AddEntitlementHistoryAsync(EntitlementHistory history)

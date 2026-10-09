@@ -23,7 +23,19 @@ builder.Services.AddDbContext<CareHomeLeaveManagementDbContext>(
     options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CareHomeDatabase")));
 
-    var app = builder.Build();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
+var app = builder.Build();
+
+app.UseCors("ReactPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

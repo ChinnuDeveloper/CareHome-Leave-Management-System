@@ -59,7 +59,7 @@ namespace CareHomeLeaveManagement.API.Controllers
                 );
         }
 
-        [HttpPut("/approve")]
+        [HttpPut("approve")]
         public async Task<IActionResult> Approve(ApproveLeaveRequestDto dto)
         {
             try
@@ -81,7 +81,7 @@ namespace CareHomeLeaveManagement.API.Controllers
             }
         }
 
-        [HttpPut("/reject")]
+        [HttpPut("reject")]
         public async Task<IActionResult> Reject(RejectLeaveRequestDto dto)
         {
             try
